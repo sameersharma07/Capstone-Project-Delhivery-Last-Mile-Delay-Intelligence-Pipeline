@@ -1,0 +1,4 @@
+cluster,hub_count,avg_delivery_hours,delay_rate,avg_distance_km,avg_stops,avg_weight
+0,8,56.8137,0.1550,314.1762,70.7175,2.3556
+1,9,64.6504,0.4600,470.4757,84.3444,2.2849
+2,7,47.2396,0.0257,188.9296,55.3686,2.3297

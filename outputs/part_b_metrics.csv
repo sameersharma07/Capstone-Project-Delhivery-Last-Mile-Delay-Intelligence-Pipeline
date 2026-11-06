@@ -1,0 +1,7 @@
+model,split,mae,mse,rmse,r2
+baseline,val,15.7952,355.5204,18.8552,-0.0212
+linear_regression,val,3.9449,24.3687,4.9365,0.9300
+decision_tree,val,5.0344,39.1376,6.2560,0.8876
+random_forest,val,4.2542,29.7945,5.4584,0.9144
+gradient_boosting,val,3.9371,24.2549,4.9249,0.9303
+gradient_boosting,test,3.4731,19.9852,4.4705,0.9504
