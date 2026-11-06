@@ -44,6 +44,9 @@ The pipeline also includes model packaging and a prediction workflow for evaluat
 ```text
 Capstone-Project-Delhivery-Last-Mile-Delay-Intelligence-Pipeline/
 │
+├── README.md
+├── requirements.txt
+│
 ├── data/
 │   ├── hubs.csv
 │   ├── raw_shipments.csv
@@ -77,9 +80,7 @@ Capstone-Project-Delhivery-Last-Mile-Delay-Intelligence-Pipeline/
 ├── part_c_classification.py
 ├── part_d_segments.py
 ├── package_model.py
-├── predict_delay.py
-├── requirements.txt
-└── README.md
+└── predict_delay.py
 ```
 
 ## 5. Dataset Description
@@ -94,6 +95,7 @@ The project uses simulated shipment and logistics hub data.
 | `modelling_table.csv` | Cleaned and feature-engineered dataset prepared for modelling |
 
 The data generation script creates:
+
 - 24 logistics hubs.
 - 1,200 shipment records.
 - 48 new shipment records for prediction.
@@ -107,6 +109,7 @@ The generated datasets provide a consistent environment for testing the complete
 The first stage prepares the datasets for analysis and modelling.
 
 Activities include:
+
 - Generating shipment and hub datasets.
 - Inspecting missing values, duplicates, and data inconsistencies.
 - Cleaning and preprocessing shipment information.
@@ -115,7 +118,7 @@ Activities include:
 - Conducting exploratory data analysis.
 - Generating summary reports and visualizations.
 
-**Key data findings:**
+**Key Data Findings**
 
 | Finding | Observed Delay Rate |
 |---|---:|
@@ -131,13 +134,14 @@ Express shipments show the highest delay rate among the service categories, whil
 Regression models were developed to estimate shipment delivery duration in hours.
 
 The models compared include:
+
 - Linear Regression
 - Random Forest Regressor
 - Gradient Boosting Regressor
 
 The models were evaluated using Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and R-squared (R²).
 
-**Final regression test results:**
+**Final Regression Test Results**
 
 | Evaluation Metric | Result |
 |---|---:|
@@ -152,12 +156,13 @@ The final regression model achieved an R² score of approximately 0.95, indicati
 Classification models were developed to predict whether a shipment is likely to be delayed.
 
 The workflow includes:
+
 - Model comparison.
 - Feature evaluation.
 - Classification threshold selection.
 - Model evaluation using a confusion matrix and classification metrics.
 
-**Classification results:**
+**Classification Results**
 
 | Evaluation Metric | Result |
 |---|---:|
@@ -175,7 +180,7 @@ K-Means clustering was used to group logistics hubs based on their operational c
 
 Feature scaling was applied before clustering.
 
-**Hub segmentation results:**
+**Hub Segmentation Results**
 
 | Segment | Number of Hubs | Average Delivery Time | Delay Rate |
 |---|---:|---:|---:|
@@ -202,6 +207,7 @@ models/delay_intelligence_model.pkl
 The `predict_delay.py` script uses the packaged model to process new shipment records.
 
 The prediction workflow:
+
 1. Loads the packaged model.
 2. Reads new shipment and hub datasets.
 3. Applies the required preprocessing.
