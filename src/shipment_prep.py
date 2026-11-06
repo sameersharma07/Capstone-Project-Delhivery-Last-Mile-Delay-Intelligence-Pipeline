@@ -157,12 +157,8 @@ def build_features(clean, hubs):
         df["hub_daily_capacity"].median()
     )
 
-    df["delay_hours"] = (
-        df["delivery_hours"] - df["promised_hours"]
-    )
+    if "delivery_hours" in df.columns:
+    df["delay_hours"] = df["delivery_hours"] - df["promised_hours"]
+    df["is_delayed"] = (df["delay_hours"] > 0).astype(int)
 
-    df["is_delayed"] = (
-        df["delay_hours"] > 0
-    ).astype(int)
-
-    return df
+return df
