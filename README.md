@@ -1,45 +1,43 @@
-# Capstone Project — Delhivery Last-Mile Delay Intelligence Pipeline
+# Delhivery Last-Mile Delay Intelligence Pipeline
 
-**Project Period:** 16 October 2026 – 6 November 2026  
-**Language:** Python  
-**Development Environments:** Google Colab and Cursor  
-**Repository:** [Capstone Project — Delhivery Last-Mile Delay Intelligence Pipeline](https://github.com/sameersharma07/Capstone-Project-Delhivery-Last-Mile-Delay-Intelligence-Pipeline)
+**Project Duration:** 16 October 2026 – 6 November 2026  
+**Programming Language:** Python  
+**Development Environments:** Google Colab and Cursor
 
 ---
 
 ## 1. Project Overview
 
-The **Delhivery Last-Mile Delay Intelligence Pipeline** is a data analytics and machine learning project designed to analyze shipment delivery performance, identify factors contributing to delivery delays, predict delivery times, classify delayed shipments, and group logistics hubs based on their operational performance.
+The Delhivery Last-Mile Delay Intelligence Pipeline is an end-to-end data analytics and machine learning project designed to analyze shipment delivery performance, predict delivery durations, identify potentially delayed shipments, and segment logistics hubs based on operational performance.
 
-The project uses a simulated shipment dataset representing last-mile delivery operations. It combines data preprocessing, exploratory data analysis, regression, classification, and clustering into a single end-to-end analytical pipeline.
+The project uses simulated shipment and hub datasets to demonstrate how data preprocessing, exploratory data analysis, regression, classification, and clustering can support logistics decision-making.
 
-The final objective is to develop a reusable model package that can generate delivery-time estimates and delay predictions for new shipments.
+The pipeline also includes model packaging and a prediction workflow for evaluating new shipment records.
 
 ## 2. Project Objectives
 
-- Generate and prepare shipment and logistics hub datasets.
-- Clean and preprocess raw shipment data.
-- Perform exploratory data analysis (EDA) to identify delivery patterns.
-- Analyze the factors influencing delivery duration and delays.
-- Build regression models to predict delivery hours.
-- Build classification models to identify potentially delayed shipments.
-- Apply clustering techniques to identify operational hub segments.
-- Package trained models and preprocessing information for reuse.
-- Generate predictions for previously unseen shipments.
+- Generate and preprocess shipment and logistics hub datasets.
+- Perform exploratory data analysis to identify delivery patterns.
+- Identify shipment and operational characteristics associated with delays.
+- Develop regression models to predict delivery duration.
+- Develop classification models to identify potentially delayed shipments.
+- Apply clustering to segment logistics hubs.
+- Package trained models for reuse.
+- Generate delivery-time and delay predictions for new shipments.
 
 ## 3. Technologies and Libraries
 
-| Technology | Purpose |
+| Technology | Application |
 |---|---|
 | Python | Core programming language |
-| Google Colab | Development and model experimentation |
-| Cursor | Code editing and project organization |
 | Pandas | Data manipulation and preprocessing |
 | NumPy | Numerical operations |
 | Matplotlib | Data visualization |
 | Seaborn | Statistical visualization |
 | Scikit-learn | Machine learning and model evaluation |
-| Joblib | Model serialization and packaging |
+| Joblib | Model serialization |
+| Google Colab | Model development and experimentation |
+| Cursor | Code editing and project organization |
 
 ## 4. Repository Structure
 
@@ -67,11 +65,11 @@ Capstone-Project-Delhivery-Last-Mile-Delay-Intelligence-Pipeline/
 │   └── regression_model.pkl
 │
 ├── outputs/
-│   ├── EDA outputs
-│   ├── Regression outputs
-│   ├── Classification outputs
-│   ├── Hub segmentation outputs
-│   └── Prediction outputs
+│   ├── EDA reports and visualizations
+│   ├── Regression evaluation results
+│   ├── Classification evaluation results
+│   ├── Hub segmentation results
+│   └── New shipment predictions
 │
 ├── generate_data.py
 ├── part_a_clean_eda.py
@@ -80,103 +78,104 @@ Capstone-Project-Delhivery-Last-Mile-Delay-Intelligence-Pipeline/
 ├── part_d_segments.py
 ├── package_model.py
 ├── predict_delay.py
-│
 ├── requirements.txt
 └── README.md
 ```
 
-*Note: The outputs directory contains the generated CSV reports and visualization files. The models directory contains the serialized model artifacts.*
-
 ## 5. Dataset Description
 
-The project uses three primary input datasets and one processed dataset.
+The project uses simulated shipment and logistics hub data.
 
 | Dataset | Description |
 |---|---|
-| `hubs.csv` | Contains logistics hub information and operational attributes |
-| `raw_shipments.csv` | Contains the generated shipment records used for analysis and training |
-| `new_shipments.csv` | Contains new shipment records used for prediction |
-| `modelling_table.csv` | Contains the cleaned and feature-engineered dataset prepared for modelling |
+| `hubs.csv` | Logistics hub information and operational attributes |
+| `raw_shipments.csv` | Shipment records used for analysis and model training |
+| `new_shipments.csv` | New shipment records used for prediction |
+| `modelling_table.csv` | Cleaned and feature-engineered dataset prepared for modelling |
 
-The synthetic dataset generator creates 24 logistics hubs, 1,200 shipment records, and 48 new shipment records for prediction.
+The data generation script creates:
+- 24 logistics hubs.
+- 1,200 shipment records.
+- 48 new shipment records for prediction.
+
+The generated datasets provide a consistent environment for testing the complete analytical workflow.
 
 ## 6. Project Workflow
 
 ### Part A — Data Generation, Cleaning and Exploratory Data Analysis
 
-- Generate shipment and hub datasets.
-- Inspect the raw data for missing values, inconsistencies, and duplicate records.
-- Clean and preprocess shipment information.
-- Perform feature engineering and prepare the modelling dataset.
-- Conduct exploratory data analysis to understand delivery patterns.
-- Generate summary tables and visualizations.
+The first stage prepares the datasets for analysis and modelling.
 
-**Key observations:**
+Activities include:
+- Generating shipment and hub datasets.
+- Inspecting missing values, duplicates, and data inconsistencies.
+- Cleaning and preprocessing shipment information.
+- Performing feature engineering.
+- Preparing the modelling dataset.
+- Conducting exploratory data analysis.
+- Generating summary reports and visualizations.
 
-- Express shipments recorded a delay rate of approximately 48.97%.
-- Standard shipments recorded a delay rate of approximately 20.56%.
-- Economy shipments recorded a delay rate of approximately 8.57%.
-- The East region recorded a delay rate of approximately 43.25%.
+**Key data findings:**
+
+| Finding | Observed Delay Rate |
+|---|---:|
+| Express shipments | 48.97% |
+| Standard shipments | 20.56% |
+| Economy shipments | 8.57% |
+| East region | 43.25% |
+
+Express shipments show the highest delay rate among the service categories, while the East region records a comparatively high delay rate.
 
 ### Part B — Delivery Time Prediction Using Regression
 
 Regression models were developed to estimate shipment delivery duration in hours.
 
-The project compares multiple regression approaches, including:
-
+The models compared include:
 - Linear Regression
 - Random Forest Regressor
 - Gradient Boosting Regressor
 
-Models were evaluated using:
-
-- Mean Absolute Error (MAE)
-- Root Mean Squared Error (RMSE)
-- R-squared (R²)
+The models were evaluated using Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and R-squared (R²).
 
 **Final regression test results:**
 
-| Metric | Result |
+| Evaluation Metric | Result |
 |---|---:|
 | MAE | 3.4711 |
 | RMSE | 4.5125 |
 | R² | 0.9495 |
 
-The final regression model achieved an R² score of approximately 0.95 on the test dataset.
+The final regression model achieved an R² score of approximately 0.95, indicating a strong fit on the test dataset.
 
 ### Part C — Shipment Delay Classification
 
 Classification models were developed to predict whether a shipment is likely to be delayed.
 
-The classification workflow includes model comparison, evaluation, threshold selection, and final prediction.
-
-The evaluation metrics include:
-
-- Accuracy
-- Precision
-- Recall
-- F1-score
-- Confusion Matrix
+The workflow includes:
+- Model comparison.
+- Feature evaluation.
+- Classification threshold selection.
+- Model evaluation using a confusion matrix and classification metrics.
 
 **Classification results:**
 
-| Metric | Result |
+| Evaluation Metric | Result |
 |---|---:|
 | Accuracy | 85.56% |
 | Precision | 65.96% |
 | Recall | 75.61% |
 | F1-score | 70.45% |
-| Classification Threshold | 0.45 |
+| Selected Threshold | 0.45 |
 
-The selected classification threshold provides a balance between identifying delayed shipments and limiting false delay predictions.
+The selected threshold determines how predicted delay probabilities are converted into delayed and on-time classifications.
 
 ### Part D — Logistics Hub Segmentation
 
-Clustering was applied to group logistics hubs based on their operational characteristics and delivery performance.
+K-Means clustering was used to group logistics hubs based on their operational characteristics and delivery performance.
 
-The segmentation process uses feature scaling and K-Means clustering.
+Feature scaling was applied before clustering.
 
-**Hub segment summary:**
+**Hub segmentation results:**
 
 | Segment | Number of Hubs | Average Delivery Time | Delay Rate |
 |---|---:|---:|---:|
@@ -184,15 +183,13 @@ The segmentation process uses feature scaling and K-Means clustering.
 | Segment 1 | 9 | 64.65 hours | 46.00% |
 | Segment 2 | 7 | 47.24 hours | 2.57% |
 
-The results identify different operational performance groups, helping highlight hubs that may require further investigation or process improvement.
+The segmentation identifies different operational performance groups. Segment 1 has the highest observed delay rate, while Segment 2 has the lowest.
 
 ## 7. Model Packaging and Prediction
 
-The project includes two additional scripts for model reuse and prediction.
+### Model Packaging
 
-### Model Packaging — `package_model.py`
-
-This script combines the trained regression model, classification model, selected classification threshold, feature column information, and preprocessing medians into a single serialized model package.
+The `package_model.py` script combines the trained regression model, classification model, classification threshold, feature column information, and preprocessing medians into a single reusable model package.
 
 The packaged model is saved as:
 
@@ -200,108 +197,116 @@ The packaged model is saved as:
 models/delay_intelligence_model.pkl
 ```
 
-### New Shipment Prediction — `predict_delay.py`
+### New Shipment Prediction
 
-The prediction script:
+The `predict_delay.py` script uses the packaged model to process new shipment records.
 
+The prediction workflow:
 1. Loads the packaged model.
-2. Reads new shipment records and hub information.
-3. Applies the same preprocessing logic used during training.
+2. Reads new shipment and hub datasets.
+3. Applies the required preprocessing.
 4. Predicts delivery duration in hours.
-5. Calculates the probability of shipment delay.
-6. Classifies shipments as delayed or on time using the selected threshold.
+5. Calculates the probability of delay.
+6. Classifies shipments as delayed or on time.
 7. Saves the prediction results.
 
-The generated prediction file is:
+The generated output is:
 
 ```text
 outputs/new_shipment_predictions.csv
 ```
 
-The output includes shipment identifiers, hub information, predicted delivery hours, delay probability, predicted delay classification, and predicted status.
+The prediction file contains shipment identifiers, hub information, predicted delivery hours, delay probabilities, predicted delay classifications, and predicted shipment status.
 
-## 8. Installation and Setup
+## 8. How to Run
 
-Clone the repository:
+### Prerequisites
 
-```bash
-git clone https://github.com/sameersharma07/Capstone-Project-Delhivery-Last-Mile-Delay-Intelligence-Pipeline.git
-```
+- Python installed on the system.
+- Git installed for repository access.
+- Required Python libraries listed in `requirements.txt`.
 
-Navigate to the project directory:
-
-```bash
-cd Capstone-Project-Delhivery-Last-Mile-Delay-Intelligence-Pipeline
-```
-
-Install the required dependencies:
+### Step 1 — Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 9. Running the Project
-
-Run the scripts from the repository root directory.
-
-**Step 1 — Generate the datasets**
+### Step 2 — Generate the Datasets
 
 ```bash
 python generate_data.py
 ```
 
-**Step 2 — Run Part A: Data Cleaning and EDA**
+### Step 3 — Run Part A: Data Cleaning and EDA
 
 ```bash
 python part_a_clean_eda.py
 ```
 
-**Step 3 — Run Part B: Regression Modelling**
+### Step 4 — Run Part B: Regression Modelling
 
 ```bash
 python part_b_regression.py
 ```
 
-**Step 4 — Run Part C: Classification**
+### Step 5 — Run Part C: Classification
 
 ```bash
 python part_c_classification.py
 ```
 
-**Step 5 — Run Part D: Hub Segmentation**
+### Step 6 — Run Part D: Hub Segmentation
 
 ```bash
 python part_d_segments.py
 ```
 
-**Step 6 — Package the trained models**
+### Step 7 — Package the Models
 
 ```bash
 python package_model.py
 ```
 
-**Step 7 — Predict delays for new shipments**
+### Step 8 — Generate New Shipment Predictions
 
 ```bash
 python predict_delay.py
 ```
 
-*Run the scripts in the specified order so that the required datasets, model artifacts, and output directories are available.*
+Run the scripts from the project root directory and in the specified order to ensure that the required datasets and model artifacts are available.
 
-## 10. Expected Outputs
+## 9. Operations Recommendations
 
-The project generates:
+Based on the observed data findings and model outputs, the following operational recommendations can be considered:
 
-- Cleaned and feature-engineered shipment datasets.
-- Exploratory data analysis summaries and visualizations.
-- Regression model comparison and evaluation reports.
-- Classification metrics, reports, and confusion matrices.
-- Hub segmentation and cluster analysis results.
-- Serialized machine learning models.
-- A consolidated model package.
-- New shipment delivery-time and delay predictions.
+1. **Prioritize Express shipments:** Their observed delay rate is the highest among the three service categories. Review dispatch scheduling, handling processes, and delivery capacity for these shipments.
 
-Generated CSV reports and visualizations are stored in `outputs/`, while serialized models are stored in `models/`.
+2. **Investigate regional performance:** The East region has a comparatively high delay rate. Further analysis of hub-level operations, shipment volumes, and delivery conditions may help identify contributing factors.
+
+3. **Review underperforming hub segments:** Segment 1 has the highest average delivery time and delay rate. These hubs should be prioritized for operational assessment and process improvement.
+
+4. **Use delay predictions for proactive monitoring:** Shipments with high predicted delay probabilities can be flagged for closer monitoring and early intervention.
+
+5. **Use hub segmentation for resource planning:** Hub clusters can help identify differences in operational performance and support targeted resource allocation.
+
+These recommendations are based on the simulated dataset and should be validated against real operational information before implementation.
+
+## 10. Production Plan
+
+The current project is an analytical prototype. The following stages outline a possible path toward production deployment.
+
+| Phase | Proposed Activity |
+|---|---|
+| Data Integration | Connect real shipment, hub, traffic, and weather data sources |
+| Data Validation | Implement automated checks for missing, inconsistent, and invalid records |
+| Model Deployment | Expose trained models through a REST API or cloud-based service |
+| Monitoring | Track prediction accuracy, delay trends, and model performance |
+| Model Maintenance | Retrain models periodically using updated operational data |
+| Dashboard Integration | Develop an interactive dashboard for shipment and hub monitoring |
+| Operational Integration | Integrate predictions into logistics monitoring and decision-making workflows |
+
+A production implementation would require real-world data validation, deployment infrastructure, security controls, and continuous model monitoring.
 
 ## 11. Limitations
 
@@ -309,6 +314,7 @@ Generated CSV reports and visualizations are stored in `outputs/`, while seriali
 - Model performance on synthetic data may differ from performance on real logistics datasets.
 - Predictions depend on the quality and availability of shipment and hub information.
 - The project is intended as an analytical and predictive prototype, not a production logistics deployment.
+- The operational recommendations require validation using actual logistics data before implementation.
 
 ## 12. Future Scope
 
@@ -316,14 +322,14 @@ Potential improvements include:
 
 - Integration with real-time shipment tracking systems.
 - Incorporation of live traffic and weather information.
-- Development of an interactive dashboard for logistics monitoring.
+- Development of an interactive logistics monitoring dashboard.
 - Automated model retraining using updated shipment data.
-- Deployment through a REST API or cloud-based service.
+- Deployment through a REST API or cloud-based platform.
 - Advanced optimization of hub operations and delivery routes.
 
 ## 13. Project Timeline
 
-| Dates | Work Completed |
+| Dates | Activities |
 |---|---|
 | 16–19 October 2026 | Data generation, cleaning, preprocessing and EDA |
 | 20–23 October 2026 | Regression modelling and evaluation |
@@ -334,16 +340,10 @@ Potential improvements include:
 
 ## 14. Conclusion
 
-The Delhivery Last-Mile Delay Intelligence Pipeline demonstrates how data analytics and machine learning can be applied to last-mile logistics operations.
+The Delhivery Last-Mile Delay Intelligence Pipeline demonstrates the application of data analytics and machine learning techniques to last-mile logistics operations.
 
-The project combines exploratory analysis, regression, classification, and clustering to examine shipment delivery performance, estimate delivery duration, identify potentially delayed shipments, and segment logistics hubs.
+By combining exploratory data analysis, regression, classification, and clustering, the project provides insights into shipment delivery performance, estimates delivery durations, identifies potentially delayed shipments, and groups logistics hubs based on operational characteristics.
 
-The final model packaging and prediction workflow makes it possible to reuse the trained models for new shipment records without repeating the entire training process.
+The model packaging and prediction workflow further demonstrates how trained models can be reused to evaluate new shipment records without repeating the entire training process.
 
-Overall, the project provides an end-to-end prototype demonstrating the application of Python-based data science and machine learning techniques to logistics delay intelligence.
-
----
-
-**Author:** Sameer Sharma  
-**Project:** Delhivery Last-Mile Delay Intelligence Pipeline  
-**Repository:** [GitHub Repository](https://github.com/sameersharma07/Capstone-Project-Delhivery-Last-Mile-Delay-Intelligence-Pipeline)
+Overall, this project presents an end-to-end prototype for shipment delay intelligence and data-driven logistics analysis.
