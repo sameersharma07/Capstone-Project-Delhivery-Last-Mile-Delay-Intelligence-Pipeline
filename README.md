@@ -56,6 +56,14 @@ Capstone-Project-Delhivery-Last-Mile-Delay-Intelligence-Pipeline/
 ├── src/
 │   └── shipment_prep.py
 │
+├── generate_data.py
+├── part_a_clean_eda.py
+├── part_b_regression.py
+├── part_c_classification.py
+├── part_d_segments.py
+├── package_model.py
+├── predict_delay.py
+│
 ├── models/
 │   ├── classification_threshold.pkl
 │   ├── classifier_candidate.pkl
@@ -67,20 +75,12 @@ Capstone-Project-Delhivery-Last-Mile-Delay-Intelligence-Pipeline/
 │   ├── model_config.pkl
 │   └── regression_model.pkl
 │
-├── outputs/
-│   ├── EDA reports and visualizations
-│   ├── Regression evaluation results
-│   ├── Classification evaluation results
-│   ├── Hub segmentation results
-│   └── New shipment predictions
-│
-├── generate_data.py
-├── part_a_clean_eda.py
-├── part_b_regression.py
-├── part_c_classification.py
-├── part_d_segments.py
-├── package_model.py
-└── predict_delay.py
+└── outputs/
+    ├── EDA reports and visualizations
+    ├── Regression evaluation results
+    ├── Classification evaluation results
+    ├── Hub segmentation results
+    └── New shipment predictions
 ```
 
 ## 5. Dataset Description
@@ -308,7 +308,7 @@ The current project is an analytical prototype. The following stages outline a p
 | Data Validation | Implement automated checks for missing, inconsistent, and invalid records |
 | Model Deployment | Expose trained models through a REST API or cloud-based service |
 | Monitoring | Track prediction accuracy, delay trends, and model performance |
-| Model Maintenance | Retrain models periodically using updated operational data |
+| Model Maintenance | Retrain models periodically using updated shipment data |
 | Dashboard Integration | Develop an interactive dashboard for shipment and hub monitoring |
 | Operational Integration | Integrate predictions into logistics monitoring and decision-making workflows |
 
