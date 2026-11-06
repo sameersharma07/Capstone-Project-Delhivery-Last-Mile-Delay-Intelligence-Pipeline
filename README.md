@@ -1,4 +1,4 @@
-# Delhivery Last-Mile Delay Intelligence Pipeline
+# Capstone Project — Delhivery Last-Mile Delay Intelligence Pipeline
 
 **Project Duration:** 16 October 2026 – 6 November 2026  
 **Programming Language:** Python  
